@@ -14,7 +14,7 @@
         }
 
         //metodo para Alterar o limite de credito
-        public void AlterarLimiteDeCredito(double valor, bool subtrair, int idLog)
+        public void AlterarLimiteDeCredito(double valor, bool subtrair)
         {
             if (subtrair)//Verifica se é para subtrair ou somar ao limite de credito já existente
             {
@@ -27,7 +27,7 @@
         }
 
         //metodo para cadastrar novo cliente
-        public void CadastrarNovoCliente(string nome, double limite, int idLog, int codigo)
+        public void CadastrarNovoCliente(string nome, double limite, int codigo)
         {
             this.Codigo = codigo;
             this.Nome = nome;

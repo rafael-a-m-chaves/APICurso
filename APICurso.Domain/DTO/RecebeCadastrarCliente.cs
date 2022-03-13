@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace APICurso.Domain.DTO
 {
-    public class ListarClientes
+    public class RecebeCadastrarCliente
     {
-        public int Codigo { get; set; }
         public string Nome { get; set; }
+        public double Limite { get; set; }
+        public int Codigo { get; set; }
+        public string Usuario { get; set; }
+
     }
 }

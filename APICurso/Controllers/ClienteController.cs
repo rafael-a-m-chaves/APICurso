@@ -29,7 +29,7 @@ namespace APICurso.Controllers
             try //bloco para proteçao
             {
                 var clienteList = clienteService.Get(r => r.IsActive != false);
-                List<ListarClientes> model = clienteList.Select(r => new ListarClientes
+                List<RetornaListarClientes> model = clienteList.Select(r => new RetornaListarClientes
                 {
                     Nome = r.Nome,
                     Codigo = r.Codigo

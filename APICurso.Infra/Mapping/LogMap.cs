@@ -11,6 +11,7 @@ namespace APICurso.Infra.Mapping
             builder.Property(r => r.NomeEntidade);
             builder.Property(r => r.IdEntitade);
             builder.Property(r => r.Observacao);
+            builder.Property(r => r.Usuario);
         }
     }
 }

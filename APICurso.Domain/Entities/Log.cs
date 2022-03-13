@@ -7,5 +7,6 @@
         public string Observacao { get; set; }
         public string NomeEntidade { get; set; }
         public int IdEntitade { get; set; }
+        public string Usuario { get; set; }
     }
 }
