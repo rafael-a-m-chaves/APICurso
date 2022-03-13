@@ -8,9 +8,12 @@ namespace APICurso.Domain.Entities
 {
     public class Cliente
     {
-        public int Codigo { get; private set; }//private set para evitar manipulaçao do codigo de cliente sem segurança 
-        public double LimiteCredito { get; private set; }//private set para evitar manipulaçao do limite de cliente sem segurança
+        //Os private set serve para a proteger de alteraçoes o cliente sem que seja gerado log
+        public int Codigo { get; private set; } 
+        public double LimiteCredito { get; private set; }
         public string Nome { get; private set; }
+        public bool IsActive { get; private set; }
+        public int IdLog { get; private set; } 
 
         public Cliente()
         {
@@ -18,17 +21,37 @@ namespace APICurso.Domain.Entities
         }
 
         //metodo para Alterar o limite de credito
-        public void AlterarLimiteDeCredito(double valor, bool subtrair)
+        public void AlterarLimiteDeCredito(double valor, bool subtrair, int idLog)
         {
             if (subtrair)//Verifica se é para subtrair ou somar ao limite de credito já existente
             {
-                this.LimiteCredito -= valor; 
+                this.LimiteCredito -= valor;
+                this.IdLog = idLog;
             }
             else
             {
                 this.LimiteCredito += valor;
+                this.IdLog = idLog;
             }
         }
+
+        //metodo para cadastrar novo cliente
+        public void CadastrarNovoCliente(string nome, double limite, int idLog, int codigo)
+        {
+            this.Codigo = codigo;
+            this.IdLog = idLog;
+            this.Nome = nome;
+            this.LimiteCredito = limite;
+            this.IsActive = true;
+        }
+
+        //metodo para alterar o nome do cliente
+        public void AlterarNomeCliente(string nome ,int idLog)
+        {
+            this.IdLog = idLog;
+            this.Nome = nome;
+        }
+
 
     }
 }
