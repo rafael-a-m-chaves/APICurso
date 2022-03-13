@@ -1,4 +1,8 @@
+using APICurso.Application.IServices;
+using APICurso.Application.Services;
 using APICurso.Infra.Contexts;
+using APICurso.Infra.IRepositories;
+using APICurso.Infra.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -37,11 +41,13 @@ namespace APICurso
 
             //Mapeamento dos services e Repositores
             #region Services
-
+            services.AddTransient<IClienteService, ClienteService>();
+            services.AddTransient<ILogService, LogService>();
             #endregion
 
             #region Repository
-
+            services.AddTransient<IClienteRepository, ClienteRepository>();
+            services.AddTransient<ILogRepository, LogRepository>();
             #endregion
 
             services.AddControllers();
