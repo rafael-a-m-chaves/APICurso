@@ -1,6 +1,15 @@
-﻿namespace APICurso.Infra.Repositories
+﻿using APICurso.Domain.Entities;
+using APICurso.Infra.Contexts;
+using APICurso.Infra.IRepositories;
+
+namespace APICurso.Infra.Repositories
 {
-    class ClienteRepository
+    public class ClienteRepository : BaseRepository<Cliente>, IClienteRepository
     {
+        Context context;
+        public ClienteRepository(Context ctx) : base(ctx)
+        {
+            context = ctx;
+        }
     }
 }
