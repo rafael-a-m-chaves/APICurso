@@ -13,7 +13,6 @@ namespace APICurso.Domain.Entities
         public double LimiteCredito { get; private set; }
         public string Nome { get; private set; }
         public bool IsActive { get; private set; }
-        public int IdLog { get; private set; } 
 
         public Cliente()
         {
@@ -25,13 +24,11 @@ namespace APICurso.Domain.Entities
         {
             if (subtrair)//Verifica se é para subtrair ou somar ao limite de credito já existente
             {
-                this.LimiteCredito -= valor;
-                this.IdLog = idLog;
+                this.LimiteCredito -= valor;   
             }
             else
             {
                 this.LimiteCredito += valor;
-                this.IdLog = idLog;
             }
         }
 
@@ -39,7 +36,6 @@ namespace APICurso.Domain.Entities
         public void CadastrarNovoCliente(string nome, double limite, int idLog, int codigo)
         {
             this.Codigo = codigo;
-            this.IdLog = idLog;
             this.Nome = nome;
             this.LimiteCredito = limite;
             this.IsActive = true;
@@ -48,7 +44,6 @@ namespace APICurso.Domain.Entities
         //metodo para alterar o nome do cliente
         public void AlterarNomeCliente(string nome ,int idLog)
         {
-            this.IdLog = idLog;
             this.Nome = nome;
         }
 
