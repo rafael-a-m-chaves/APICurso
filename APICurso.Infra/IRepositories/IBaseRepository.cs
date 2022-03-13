@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace APICurso.Infra.IRepositories
 {
-    interface IBaseRepository<T> where T : class
+    public interface IBaseRepository<T> where T : class
     {
         void Save(T obj);
         void Save(List<T> obj);
