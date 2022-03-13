@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using APICurso.Domain.Entities;
+using APICurso.Infra.Mapping;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -13,13 +15,19 @@ namespace APICurso.Infra.Contexts
         {
         }
 
+        //Seta as Classes que devem estar no banco de dados e atribui o Get e Set
+        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<Log> Log { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           
+            //Informa ao Context as classes maps 
+            modelBuilder.Entity<Cliente>(new ClienteMap().Configure);
+            modelBuilder.Entity<Log>(new LogMap().Configure);
 
             base.OnModelCreating(modelBuilder);
         }
