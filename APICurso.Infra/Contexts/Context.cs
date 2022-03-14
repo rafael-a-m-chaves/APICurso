@@ -16,7 +16,7 @@ namespace APICurso.Infra.Contexts
         }
 
         //Seta as Classes que devem estar no banco de dados e atribui o Get e Set
-        public DbSet<Cliente> Cliente { get; set; }
+        public DbSet<LimiteCliente> Cliente { get; set; }
         public DbSet<Log> Log { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -26,7 +26,7 @@ namespace APICurso.Infra.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Informa ao Context as classes maps 
-            modelBuilder.Entity<Cliente>(new ClienteMap().Configure);
+            modelBuilder.Entity<LimiteCliente>(new LimiteClienteMap().Configure);
             modelBuilder.Entity<Log>(new LogMap().Configure);
 
             base.OnModelCreating(modelBuilder);

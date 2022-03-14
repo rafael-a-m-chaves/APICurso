@@ -41,12 +41,12 @@ namespace APICurso
 
             //Mapeamento dos services e Repositores
             #region Services
-            services.AddTransient<IClienteService, ClienteService>();
+            services.AddTransient<ILimiteClienteService, LimiteClienteService>();
             services.AddTransient<ILogService, LogService>();
             #endregion
 
             #region Repository
-            services.AddTransient<IClienteRepository, ClienteRepository>();
+            services.AddTransient<ILimiteClienteRepository, LimiteClienteRepository>();
             services.AddTransient<ILogRepository, LogRepository>();
             #endregion
 

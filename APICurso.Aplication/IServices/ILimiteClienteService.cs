@@ -3,7 +3,7 @@ using APICurso.Domain.Entities;
 
 namespace APICurso.Application.IServices
 {
-    public interface IClienteService : IBaseService<Cliente>
+    public interface ILimiteClienteService : IBaseService<LimiteCliente>
     {
         public void SalvarNovoCliente(RecebeCadastrarCliente recebeCadastrarCliente);
 

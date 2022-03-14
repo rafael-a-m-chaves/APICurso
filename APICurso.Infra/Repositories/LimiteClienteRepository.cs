@@ -4,10 +4,10 @@ using APICurso.Infra.IRepositories;
 
 namespace APICurso.Infra.Repositories
 {
-    public class ClienteRepository : BaseRepository<Cliente>, IClienteRepository
+    public class LimiteClienteRepository : BaseRepository<LimiteCliente>, ILimiteClienteRepository
     {
         Context context;
-        public ClienteRepository(Context ctx) : base(ctx)
+        public LimiteClienteRepository(Context ctx) : base(ctx)
         {
             context = ctx;
         }

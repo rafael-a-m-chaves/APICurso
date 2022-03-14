@@ -13,11 +13,11 @@ namespace APICurso.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClienteController : ControllerBase
+    public class LimiteClienteController : ControllerBase
     {
         //Construindo os Serviços que serão nescessarios para controller
-        private readonly IClienteService clienteService;
-        public ClienteController(IClienteService service)
+        private readonly ILimiteClienteService clienteService;
+        public LimiteClienteController(ILimiteClienteService service)
         {
             clienteService = service;
         }
@@ -29,7 +29,7 @@ namespace APICurso.Controllers
         {
             try //bloco para proteçao
             {
-                List<Cliente> clienteList = new List<Cliente>();
+                List<LimiteCliente> clienteList = new List<LimiteCliente>();
                 if (usuario.Contains("Administrador")) //Verifica se é administrador, pois somente o administrador pode ver todos clientes
                 {
                     clienteList = clienteService.Get().ToList();

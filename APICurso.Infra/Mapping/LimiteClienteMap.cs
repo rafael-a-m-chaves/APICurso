@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace APICurso.Infra.Mapping
 {
-    public class ClienteMap
+    public class LimiteClienteMap
     {
-        public void Configure(EntityTypeBuilder<Cliente> builder)
+        public void Configure(EntityTypeBuilder<LimiteCliente> builder)
         {
             builder.HasKey(r => r.Codigo);
             builder.Property(r => r.Nome);

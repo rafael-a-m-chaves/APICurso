@@ -1,6 +1,6 @@
 ﻿namespace APICurso.Domain.Entities
 {
-    public class Cliente
+    public class LimiteCliente
     {
         //Os private set serve para a proteger de alteraçoes o cliente sem que seja gerado log
         public int Codigo { get; private set; } 
@@ -8,7 +8,7 @@
         public string Nome { get; private set; }
         public bool IsActive { get; private set; }
 
-        public Cliente()
+        public LimiteCliente()
         {
 
         }

@@ -2,7 +2,7 @@
 
 namespace APICurso.Infra.IRepositories
 {
-    public interface IClienteRepository : IBaseRepository<Cliente>
+    public interface ILimiteClienteRepository : IBaseRepository<LimiteCliente>
     {
     }
 }

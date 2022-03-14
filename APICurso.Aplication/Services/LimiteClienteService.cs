@@ -6,11 +6,11 @@ using System;
 
 namespace APICurso.Application.Services
 {
-    public class ClienteService : BaseService<Cliente>, IClienteService
+    public class LimiteClienteService : BaseService<LimiteCliente>, ILimiteClienteService
     {
-        private readonly IClienteRepository repository;
+        private readonly ILimiteClienteRepository repository;
         private readonly ILogService logService;
-        public ClienteService(IClienteRepository clienteRepository, ILogService _logService) : base(clienteRepository)
+        public LimiteClienteService(ILimiteClienteRepository clienteRepository, ILogService _logService) : base(clienteRepository)
         {
             repository = clienteRepository;
             logService = _logService;
@@ -20,7 +20,7 @@ namespace APICurso.Application.Services
 
         public void AlterarLimiteCliente(RecebeClienteAlterarValor recebeClienteAlterarValor)
         {
-            Cliente cliente = repository.Find(r => r.Codigo == recebeClienteAlterarValor.Codigo);
+            LimiteCliente cliente = repository.Find(r => r.Codigo == recebeClienteAlterarValor.Codigo);
             if (cliente == null) throw new Exception("Cliente não encontrado"); // verifica se cliente esta no banco de dados
 
             cliente.AlterarLimiteDeCredito(recebeClienteAlterarValor.Valor, recebeClienteAlterarValor.Subtrair);
@@ -47,7 +47,7 @@ namespace APICurso.Application.Services
 
         public void AlterarNomeCliente(RecebeClienteAlterarNome recebeClienteAlterarNome)
         {
-            Cliente cliente = repository.Find(r => r.Codigo == recebeClienteAlterarNome.Codigo);
+            LimiteCliente cliente = repository.Find(r => r.Codigo == recebeClienteAlterarNome.Codigo);
             if (cliente == null) throw new Exception("Cliente não encontrado"); // verifica se cliente esta no banco de dados
            
             cliente.AlterarNomeCliente(recebeClienteAlterarNome.Nome);
@@ -64,7 +64,7 @@ namespace APICurso.Application.Services
 
         public void AlterarStatusCliente(int codigo, string usuario)
         {
-            Cliente cliente = repository.Find(r => r.Codigo == codigo);
+            LimiteCliente cliente = repository.Find(r => r.Codigo == codigo);
             
             if (cliente == null) throw new Exception("Cliente não encontrado"); // verifica se cliente esta no banco de dados
             
@@ -83,7 +83,7 @@ namespace APICurso.Application.Services
         public void SalvarNovoCliente(RecebeCadastrarCliente recebeCadastrarCliente)
         {
             //salvando um novo cliente
-            Cliente cliente = new Cliente();
+            LimiteCliente cliente = new LimiteCliente();
             try
             {
                 cliente.CadastrarNovoCliente(recebeCadastrarCliente.Nome, recebeCadastrarCliente.Limite, recebeCadastrarCliente.Codigo);
