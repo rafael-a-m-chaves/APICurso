@@ -1,4 +1,5 @@
-﻿using APICurso.Infra.Contexts;
+﻿using APICurso.Domain.Entities;
+using APICurso.Infra.Contexts;
 using APICurso.Infra.IRepositories;
 using System;
 using System.Collections.Generic;
@@ -71,19 +72,38 @@ namespace APICurso.Infra.Repositories
         {
             try
             {
-                string pk = "Id";
-                var pkValue = obj.GetType().GetProperty(pk).GetValue(obj, null);
 
-                if ((pkValue is int && Convert.ToInt32(pkValue) > 0) ||
-                    (pkValue is string && !string.IsNullOrEmpty(pkValue.ToString())))
+                var tipoEntity = obj.GetType().ToString();
+                if (tipoEntity == "APICurso.Domain.Entities.LimiteCliente")
                 {
-                    context.Set<T>().Update(obj);
+                    string pk = "Codigo";
+                    var pkValue = obj.GetType().GetProperty(pk).GetValue(obj, null);
+                    if ((pkValue is int && Convert.ToInt32(pkValue) > 0) ||
+                    (pkValue is string && !string.IsNullOrEmpty(pkValue.ToString())))
+                    {
+                        context.Set<T>().Update(obj);
+                    }
+                    else
+                    {
+                        context.Set<T>().Add(obj);
+                    }
+                    context.SaveChanges();
                 }
                 else
                 {
-                    context.Set<T>().Add(obj);
-                }
-                context.SaveChanges();
+                    string pk = "Id";
+                    var pkValue = obj.GetType().GetProperty(pk).GetValue(obj, null);
+                    if ((pkValue is int && Convert.ToInt32(pkValue) > 0) ||
+                    (pkValue is string && !string.IsNullOrEmpty(pkValue.ToString())))
+                    {
+                        context.Set<T>().Update(obj);
+                    }
+                    else
+                    {
+                        context.Set<T>().Add(obj);
+                    }
+                    context.SaveChanges();
+                } 
             }
             catch (Exception e)
             {
