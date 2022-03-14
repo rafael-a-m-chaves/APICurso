@@ -98,6 +98,7 @@ namespace APICurso.Application.Services
 
             string nomeEntidade = "Cliente";
             string observacao = "Foi Criado um novo Cliente em: " + DateTime.Now.ToString("f(pt-BR)");
+            observacao +=" Com um Limite de R$"+recebeCadastrarCliente.Limite ;
             logService.SalvarNovoLog(cliente.Codigo, nomeEntidade, observacao, recebeCadastrarCliente.Usuario);
 
         }
