@@ -28,7 +28,7 @@ namespace APICurso
         public void ConfigureServices(IServiceCollection services)
         {
             //Obtem a string de conexão com o banco de dados
-            var connection = Configuration["ConnectionStrings:DefaultConnection"];
+            var connection = Configuration["ConnectionStrings:DefaultConection"];
             //Adiciona o Context e determina o tipo de banco de dados e passa a string de conexão
             services.AddDbContext<Context>(options => options.UseSqlServer(connection));
 
