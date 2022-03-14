@@ -16,7 +16,7 @@ namespace APICurso.Infra.Contexts
         }
 
         //Seta as Classes que devem estar no banco de dados e atribui o Get e Set
-        public DbSet<LimiteCliente> Cliente { get; set; }
+        public DbSet<LimiteCliente> LimiteCliente { get; set; }
         public DbSet<Log> Log { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
