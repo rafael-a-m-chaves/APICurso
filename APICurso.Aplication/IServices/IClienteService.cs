@@ -6,5 +6,10 @@ namespace APICurso.Application.IServices
     public interface IClienteService : IBaseService<Cliente>
     {
         public void SalvarNovoCliente(RecebeCadastrarCliente recebeCadastrarCliente);
+
+        public void AlterarLimiteCliente(RecebeClienteAlterarValor recebeClienteAlterarValor);
+
+        public void AlterarNomeCliente(RecebeClienteAlterarNome recebeClienteAlterarNome);
+        public void AlterarStatusCliente(int codigo, string usuario);
     }
 }

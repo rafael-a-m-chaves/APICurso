@@ -36,11 +36,15 @@
         }
 
         //metodo para alterar o nome do cliente
-        public void AlterarNomeCliente(string nome ,int idLog)
+        public void AlterarNomeCliente(string nome )
         {
             this.Nome = nome;
         }
 
+        public void AlterarStatusCliente()
+        {
+            this.IsActive = !this.IsActive; // faz com que o IsActive Receba o valor contrario ao qual ele estano momento que executa esse metodo
+        }
 
     }
 }
