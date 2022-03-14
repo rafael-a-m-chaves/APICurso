@@ -49,7 +49,9 @@ namespace APICurso.Application.Services
         {
             LimiteCliente cliente = repository.Find(r => r.Codigo == recebeClienteAlterarNome.Codigo);
             if (cliente == null) throw new Exception("Cliente não encontrado"); // verifica se cliente esta no banco de dados
-           
+            
+            var nomeAntigo = cliente.Nome;
+            
             cliente.AlterarNomeCliente(recebeClienteAlterarNome.Nome);
             repository.Save(cliente);
           
@@ -57,7 +59,7 @@ namespace APICurso.Application.Services
             //Criando um registro de log
 
             string nomeEntidade = "Cliente";
-            string observacao = "Nome do Cliente foi alterado em: " + DateTime.Now.ToString("f");
+            string observacao = "Nome do Cliente "+ nomeAntigo + " foi alterado para " + cliente.Nome + " em: " + DateTime.Now.ToString("f");
             logService.SalvarNovoLog(cliente.Codigo, nomeEntidade, observacao, recebeClienteAlterarNome.Usuario);
 
         }
@@ -75,7 +77,7 @@ namespace APICurso.Application.Services
             //Criando um registro de log
 
             string nomeEntidade = "Cliente";
-            string observacao = "O Cliente Foi inativado em: " + DateTime.Now.ToString("f");
+            string observacao = "O Cliente "+ cliente.Nome +" Foi inativado em: " + DateTime.Now.ToString("f");
             logService.SalvarNovoLog(cliente.Codigo, nomeEntidade, observacao, usuario);
 
         }
@@ -98,7 +100,7 @@ namespace APICurso.Application.Services
 
             string nomeEntidade = "Cliente";
             string observacao = "Foi Criado um novo Cliente em: " + DateTime.Now.ToString("f");
-            observacao +=" Com um Limite de R$"+recebeCadastrarCliente.Limite ;
+            observacao +=" Como nome: "+ cliente.Nome + " Limite de R$"+recebeCadastrarCliente.Limite ;
             logService.SalvarNovoLog(cliente.Codigo, nomeEntidade, observacao, recebeCadastrarCliente.Usuario);
 
         }
