@@ -10,6 +10,6 @@ namespace APICurso.Domain.DTO
     {
         public int Codigo { get; set; }
         public string Nome { get; set; }
-        public double Limite { get; set; }
+        public decimal Limite { get; set; }
     }
 }

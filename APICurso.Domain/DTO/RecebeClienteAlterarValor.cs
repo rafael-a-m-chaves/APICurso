@@ -10,7 +10,7 @@ namespace APICurso.Domain.DTO
     {
         public string Usuario { get; set; }
         public int Codigo { get; set; }
-        public double Valor { get; set; }
+        public decimal Valor { get; set; }
         public bool Subtrair { get; set; }
 
     }
