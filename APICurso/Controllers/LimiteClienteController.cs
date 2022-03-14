@@ -149,5 +149,20 @@ namespace APICurso.Controllers
                 return BadRequest(ex.Message);
             }
         }
+
+        [HttpGet]
+        [Route("ObterLimiteCliente")]
+        public IActionResult ObterLimiteCliente(int id)
+        {
+            var cliente = clienteService.Find(r => r.Codigo == id);
+            if (cliente != null)
+            {
+                return Ok(cliente);
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
     }
 }

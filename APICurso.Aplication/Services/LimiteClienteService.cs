@@ -33,11 +33,11 @@ namespace APICurso.Application.Services
             //verifica qual operação vai realizar
             if (recebeClienteAlterarValor.Subtrair)
             {
-                observacao = "Foi Subtraido R$"+recebeClienteAlterarValor.Valor+" em: " + DateTime.Now.ToString("f(pt-BR)");
+                observacao = "Foi Subtraido R$"+recebeClienteAlterarValor.Valor+" em: " + DateTime.Now.ToString("f");
             }
             else
             {
-                observacao = observacao = "Foi Adicionado R$" + recebeClienteAlterarValor.Valor + " em: " + DateTime.Now.ToString("f(pt-BR)");
+                observacao = observacao = "Foi Adicionado R$" + recebeClienteAlterarValor.Valor + " em: " + DateTime.Now.ToString("f");
             }
              
             logService.SalvarNovoLog(cliente.Codigo, nomeEntidade, observacao, recebeClienteAlterarValor.Usuario);
@@ -57,7 +57,7 @@ namespace APICurso.Application.Services
             //Criando um registro de log
 
             string nomeEntidade = "Cliente";
-            string observacao = "Nome do Cliente foi alterado em: " + DateTime.Now.ToString("f(pt-BR)");
+            string observacao = "Nome do Cliente foi alterado em: " + DateTime.Now.ToString("f");
             logService.SalvarNovoLog(cliente.Codigo, nomeEntidade, observacao, recebeClienteAlterarNome.Usuario);
 
         }
@@ -75,7 +75,7 @@ namespace APICurso.Application.Services
             //Criando um registro de log
 
             string nomeEntidade = "Cliente";
-            string observacao = "O Cliente Foi inativado em: " + DateTime.Now.ToString("f(pt-BR)");
+            string observacao = "O Cliente Foi inativado em: " + DateTime.Now.ToString("f");
             logService.SalvarNovoLog(cliente.Codigo, nomeEntidade, observacao, usuario);
 
         }
@@ -97,7 +97,7 @@ namespace APICurso.Application.Services
             //Criando um registro de log
 
             string nomeEntidade = "Cliente";
-            string observacao = "Foi Criado um novo Cliente em: " + DateTime.Now.ToString("f(pt-BR)");
+            string observacao = "Foi Criado um novo Cliente em: " + DateTime.Now.ToString("f");
             observacao +=" Com um Limite de R$"+recebeCadastrarCliente.Limite ;
             logService.SalvarNovoLog(cliente.Codigo, nomeEntidade, observacao, recebeCadastrarCliente.Usuario);
 
