@@ -10,5 +10,6 @@ namespace APICurso.Domain.DTO
     {
         public int Codigo { get; set; }
         public string Nome { get; set; }
+        public bool IsActive { get; set; }
     }
 }

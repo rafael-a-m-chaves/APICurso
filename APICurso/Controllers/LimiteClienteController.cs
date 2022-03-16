@@ -43,7 +43,9 @@ namespace APICurso.Controllers
                 List<RetornaListarClientes> model = clienteList.Select(r => new RetornaListarClientes
                 {
                     Nome = r.Nome,
-                    Codigo = r.Codigo
+                    Codigo = r.Codigo,
+                    IsActive = r.IsActive
+                    
                 }).ToList();
                 return Ok(model);
             }
